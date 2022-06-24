@@ -21,7 +21,14 @@ const Layout = () => {
           EMI Calculator
         </Typography>
       </Grid>
-      <Grid item xs={12} sm={8} sx={{ border: 0 }}>
+      <Grid
+        container
+        alignItems="center"
+        item
+        xs={12}
+        sm={8}
+        sx={{ border: 0 }}
+      >
         <Sliders
           loanAmount={loanAmount}
           setLoanAmount={setLoanAmount}

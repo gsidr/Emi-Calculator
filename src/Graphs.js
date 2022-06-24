@@ -33,25 +33,36 @@ const Graphs = ({ loanAmount, interestRate, loanTerm }) => {
 
   return (
     <>
-      <Grid container>
+      <Grid container alignItems="center">
         <Grid item xs={12} sm={12} sx={{ paddingBottom: 1 }}>
           <Box
             sx={{
               border: 1,
               borderWidth: 10,
               borderRadius: 2,
-              borderColor: "#f6f6f6"
+              borderColor: "#f6f6f6",
+              position: "relative"
             }}
           >
             <Doughnut data={data} />
+            <Box
+              sx={{
+                position: "absolute",
+                top: "55%",
+                left: "50%",
+                zIndex: 100,
+                transform: "translate(-50%,-50%)"
+              }}
+            >
+              <div style={{ fontSize: 14 }}>Total amount(loan+interest)</div>
+              <Typography sx={{ fontWeight: 600, fontSize: 14 }}>
+                {(interest + loanAmount).toFixed(2)}
+              </Typography>
+            </Box>
           </Box>
-          <div>Total amount(loan+interest)</div>
-          <Typography sx={{ fontWeight: 600 }}>
-            {(interest + loanAmount).toFixed(2)}
-          </Typography>
         </Grid>
 
-        <Grid container xs={12} sm={12}>
+        <Grid container xs={12} sm={12} alignItems="center">
           <Grid item xs={4} sm={4}>
             <Typography sx={{ fontSize: 12 }}>Monthly Emi </Typography>
             <Typography sx={{ fontWeight: 600 }}>{emi.toFixed(2)}</Typography>
